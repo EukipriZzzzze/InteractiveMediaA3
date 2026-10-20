@@ -1,0 +1,65 @@
+#clouds {
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Positioning container for each cloud; JavaScript sets its size and coordinates. */
+.cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cloud-float, .cloud-impact, .cloud svg {
+    width: 100%;
+    height: 100%;
+}
+
+.cloud svg {
+    display: block;
+}
+
+/* Make clouds float and rotate randomly, but not so much that players have trouble judging their positions. */
+.cloud-float {
+    transform-origin: 50% 60%;
+    animation: cloud-drift var(--float-duration) ease-in-out var(--float-delay) infinite;
+}
+
+@keyframes cloud-drift {
+    0%, 20%, 90%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    45% {
+        transform: translate(-5px, var(--float-up)) rotate(var(--tilt-left));
+    }
+    70% {
+        transform: translate(2px, var(--float-down)) rotate(var(--tilt-right));
+    }
+}
+
+
+/* Give clouds a very bouncy animation when the player lands on them. I was playing Terraria with a friend at the time and wanted to imitate the Queen Slime. */
+.cloud-impact {
+    transform-origin: 50% 30%;
+}
+
+/* Play only when the player lands on a cloud! */
+.cloud-impact.bounce {
+    animation: cloud-land 420ms ease-out;
+}
+
+/* Animation keyframes. */
+@keyframes cloud-land {
+    0%, 100% {
+        transform: scale(1, 1);
+    }
+
+    35% {
+        transform: scale(1.2, 0.75);
+    }
+
+    65% {
+        transform: scale(0.92, 1.1);
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Hopping Dude</title>
+    <link href="css/clouds.css" rel="stylesheet">
+    <script defer src="js/player.js"></script>
+    <script defer src="js/clouds.js"></script>
+    <script defer src="js/game.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            touch-action: none;
+        }
+
+        #clouds, #ascended {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #ascended {
+            z-index: 2;
+            background: white;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="myCanvas"></canvas>
+<div id="clouds" aria-hidden="true"></div>
+<div id="ascended" aria-hidden="true"></div>
+<!-- The calculations in this mini-game were giving me a headache, so ChatGPT or DeepSeek helped me write many of the formulas. -->
+<!-- I was sick in Week 12, and now I can't remember which parts I wrote and which parts were written by AI, so I can't label them all. Sob. -->
+</body>
+
+<script>
+    // Aha, there's nothing here.
+    // I split the code into separate files this time, yay. Last time, I kept it in one file because it was short enough to maintain easily.
+</script>
+</html>
